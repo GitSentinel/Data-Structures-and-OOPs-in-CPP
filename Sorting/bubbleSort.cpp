@@ -1,27 +1,40 @@
-/* Given an Integer N and a list arr. Sort the array using bubble sort algorithm.*/
-#include <bits/stdc++.h>
+// Bubble sort in C++
+
+#include <iostream>
 using namespace std;
 
-int main() {
-    int t;
-    cin>>t;
-    while(t--) {
-        int n,temp=0;
-        cin>>n;
-        int arr[n];
-        for(int i=0; i<n; i++){
-            cin>>arr[i];
-        }
-
-        for(int i=0; i<n; i++){
-            for(int j=i+1; j<n; j++){
-                for (arr[i]<arr[j]){
-                    temp=arr[i];
-                    arr[i]=arr[j];
-                    arr[j]=temp;
-                }
-            }
-        }
+void bubbleSort(int array[], int size) {
+      for (int step = 0; step < (size-1); ++step) {
+      int swapped = 0;
+    
+    for (int i = 0; i < (size-step-1); ++i) {
+      if (array[i] > array[i + 1]) {
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
+        swapped = 1;
+      }
     }
-    return 0;
+    if (swapped == 0)
+      break;
+  }
+}
+
+void printArray(int array[], int size) {
+  for (int i = 0; i < size; ++i) {
+    cout << "  " << array[i];
+  }
+  cout << "\n";
+}
+
+int main() {
+  int size;
+  cin>>size;
+  int data[size];
+  for(int i=0;i<size;i++)
+  {
+    cin>>data[i];
+  }
+  bubbleSort(data, size);
+  cout << "Sorted Array in Ascending Order:\n";
+  printArray(data, size);
 }
